@@ -1,0 +1,9 @@
+{
+  "backend_address": "0x8f6293f0",
+  "length": 184,
+  "original_code_match": true,
+  "sha256": "ff6bbac1063376a953bbf466578861d7d8d93d43d6f9f32579baf30d89689bac",
+  "log_capacity": 3968,
+  "log_total": 1727,
+  "userdata_read": false
+}

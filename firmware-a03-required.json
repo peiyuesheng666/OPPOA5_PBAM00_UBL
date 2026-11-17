@@ -1,0 +1,42 @@
+[
+  {
+    "label": "sbl1",
+    "bytes": 436444,
+    "sha256": "90c62c7dd1a01ec4da9255b4935a8bb7d63646e7b9074d3353271914e2820b27"
+  },
+  {
+    "label": "aboot",
+    "bytes": 716076,
+    "sha256": "63cc54080e16635a2f05be82060b561dd31216261a5ba8df1885f1e329790977"
+  },
+  {
+    "label": "rpm",
+    "bytes": 174884,
+    "sha256": "a75277ed1a495999dd85f704e9de2a3ce4ea1b50388c62e7fa44aa734baed708"
+  },
+  {
+    "label": "tz",
+    "bytes": 1560448,
+    "sha256": "dc9a940918d27eb51bf46863175b9a67e7c98f17d0a8ea2f557684e6c31e0f52"
+  },
+  {
+    "label": "devcfg",
+    "bytes": 39804,
+    "sha256": "da6943b1ebdc4fcc066f3a24879aef87ab3018ca93f72d6f56d7a2d6e3ab6c17"
+  },
+  {
+    "label": "keymaster",
+    "bytes": 271480,
+    "sha256": "d69ba0e7502cae51315f1351726c9993a0fa9959a35181ab9102839bfc61de89"
+  },
+  {
+    "label": "cmnlib",
+    "bytes": 213856,
+    "sha256": "fcd3d774237d2b8a0843874bbf81b30dc4af509591ba92e736dc6799ec4666dc"
+  },
+  {
+    "label": "cmnlib64",
+    "bytes": 269088,
+    "sha256": "bf4fd57bb86a03a97674974a6a5d718bf25e54df3e59ef342616346ef9cc3849"
+  }
+]

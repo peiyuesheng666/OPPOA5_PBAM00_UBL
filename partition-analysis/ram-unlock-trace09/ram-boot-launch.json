@@ -1,0 +1,11 @@
+{
+  "launched": true,
+  "unlock_verified": false,
+  "partition_commands": false,
+  "userdata_read": false,
+  "staged_sha256": "f3f88a823c616af4ef083aa4afab7ed6daf4b0e7bc0718d0a97b5400c2e1cde9",
+  "copier_sha256": "e66eeed2c8acc2098aa20983d78ae5082888f53acaf653810b0b20d4aebc141b",
+  "copier_readback_verified": true,
+  "usb_disconnect_observed": true,
+  "transport_message": "GetOverlappedResult failed (PermissionError(13, '\u62d2\u7edd\u8bbf\u95ee\u3002', None, 5))"
+}

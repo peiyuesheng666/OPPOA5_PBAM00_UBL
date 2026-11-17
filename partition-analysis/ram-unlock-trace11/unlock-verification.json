@@ -1,0 +1,18 @@
+{
+  "main_bootloader_unlock_persisted": true,
+  "critical_unlocked": false,
+  "evidence": "fresh boot direct original keymaster 0x202 read returns0 and valid deviceinfo mainflag1; no setter/default reader in probe",
+  "runtime_backend_matches_original": true,
+  "probe_calls": [
+    "#0x8f609be8",
+    "#0x8f645954",
+    "#0x8f6293f0"
+  ],
+  "xml_generated_and_ram_only": true,
+  "restore_xml_excludes_userdata": true,
+  "userdata_read_or_backed_up_in_unlock_validation": false,
+  "stock_fastboot_query_performed": false,
+  "unsigned_image_boot_test_performed": false,
+  "android_boot_repaired": false,
+  "current_mode": "900E COM7 after deliberate diagnostic abort"
+}

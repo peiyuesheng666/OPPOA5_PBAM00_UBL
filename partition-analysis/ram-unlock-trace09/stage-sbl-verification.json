@@ -1,0 +1,12 @@
+{
+  "address": "0x82000000",
+  "length": 436444,
+  "sha256": "f3f88a823c616af4ef083aa4afab7ed6daf4b0e7bc0718d0a97b5400c2e1cde9",
+  "partition_access": false,
+  "executed": false,
+  "uploaded": 436444,
+  "full_readback_verified": true,
+  "ddr_write_probe_verified": true,
+  "readback_sha256": "f3f88a823c616af4ef083aa4afab7ed6daf4b0e7bc0718d0a97b5400c2e1cde9",
+  "seconds": 31.48
+}

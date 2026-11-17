@@ -1,0 +1,8 @@
+{
+  "address": "0x807f000",
+  "length": 1568,
+  "sha256": "23627d8295d4077cf77a8ead01c5268aca107ad4d8adf056fd8d16f9d6f20974",
+  "trace_address": "0x82000200",
+  "entry_probe": "0x807f600",
+  "partition_commands": false
+}

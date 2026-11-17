@@ -1,0 +1,293 @@
+{
+  "attempt": 11,
+  "source_sha256": "90c62c7dd1a01ec4da9255b4935a8bb7d63646e7b9074d3353271914e2820b27",
+  "staged_sha256": "5f98a037a2de329661af6d6d0215a459966de50d9c837c095eaa484df006ef15",
+  "stage_address": "0x82000000",
+  "entry": "0x8008070",
+  "bootinfo_argument": "0x8003100",
+  "segments": [
+    {
+      "offset": 421472,
+      "address": 2244608,
+      "filesz": 8124,
+      "memsz": 8124,
+      "flags": "0x5"
+    },
+    {
+      "offset": 429596,
+      "address": 2252800,
+      "filesz": 6848,
+      "memsz": 6880,
+      "flags": "0x6"
+    },
+    {
+      "offset": 12288,
+      "address": 134238208,
+      "filesz": 326616,
+      "memsz": 326616,
+      "flags": "0x80000005"
+    },
+    {
+      "offset": 338904,
+      "address": 134574080,
+      "filesz": 0,
+      "memsz": 16384,
+      "flags": "0x6"
+    },
+    {
+      "offset": 338904,
+      "address": 134590464,
+      "filesz": 82568,
+      "memsz": 120044,
+      "flags": "0x6"
+    },
+    {
+      "offset": 421472,
+      "address": 2147483648,
+      "filesz": 0,
+      "memsz": 0,
+      "flags": "0x4"
+    },
+    {
+      "offset": 421472,
+      "address": 2255486976,
+      "filesz": 0,
+      "memsz": 440796,
+      "flags": "0x6"
+    }
+  ],
+  "trace_address": "0x82000200",
+  "trace_length": 128,
+  "trace_magic": "0xa5032011",
+  "hook_address": "0x805338c",
+  "hook_length": 128,
+  "trampoline_length": 132,
+  "fresh_sample_offsets": [
+    0,
+    1024,
+    2048,
+    12292,
+    24688,
+    59388,
+    59840,
+    280916,
+    332524,
+    332684,
+    332768,
+    339780,
+    341552,
+    436440,
+    59276,
+    136560,
+    141220,
+    1136,
+    141224,
+    341552
+  ],
+  "storage_write_commands": false,
+  "userdata_read": false,
+  "persistent_unlock_verified": false,
+  "limitations": [
+    "Instrumented RAM boot; persistent backend return and valid header must be checked independently",
+    "Deliberate data abort after backend read preserves diagnostic trace",
+    "No ordinary state-reader fallback or setter is called"
+  ],
+  "init_calls": [
+    {
+      "callsite": "0x8046970",
+      "return_key": "0x8046975",
+      "target": "0x800824c"
+    },
+    {
+      "callsite": "0x8046978",
+      "return_key": "0x804697d",
+      "target": "0x8007720"
+    },
+    {
+      "callsite": "0x804697c",
+      "return_key": "0x8046981",
+      "target": "0x8021d29"
+    },
+    {
+      "callsite": "0x8046980",
+      "return_key": "0x8046985",
+      "target": "0x8046209"
+    },
+    {
+      "callsite": "0x8046984",
+      "return_key": "0x8046989",
+      "target": "0x8023d6d"
+    },
+    {
+      "callsite": "0x804698a",
+      "return_key": "0x804698f",
+      "target": "0x8027249"
+    },
+    {
+      "callsite": "0x804698e",
+      "return_key": "0x8046993",
+      "target": "0x8021951"
+    },
+    {
+      "callsite": "0x80469ac",
+      "return_key": "0x80469b1",
+      "target": "0x8045e65"
+    },
+    {
+      "callsite": "0x80469b4",
+      "return_key": "0x80469b9",
+      "target": "0x8024535"
+    },
+    {
+      "callsite": "0x80469ba",
+      "return_key": "0x80469bf",
+      "target": "0x8046c5d"
+    },
+    {
+      "callsite": "0x80469c4",
+      "return_key": "0x80469c9",
+      "target": "0x80465f9"
+    },
+    {
+      "callsite": "0x80469ca",
+      "return_key": "0x80469cf",
+      "target": "0x8046b25"
+    },
+    {
+      "callsite": "0x80469d0",
+      "return_key": "0x80469d5",
+      "target": "0x8026cd1"
+    },
+    {
+      "callsite": "0x80469ea",
+      "return_key": "0x80469ef",
+      "target": "0x8026e7d"
+    },
+    {
+      "callsite": "0x8046a06",
+      "return_key": "0x8046a0b",
+      "target": "0x80218b1"
+    },
+    {
+      "callsite": "0x8046a0c",
+      "return_key": "0x8046a11",
+      "target": "0x80218b5"
+    },
+    {
+      "callsite": "0x8046a16",
+      "return_key": "0x8046a1b",
+      "target": "0x80274b5"
+    },
+    {
+      "callsite": "0x8046a22",
+      "return_key": "0x8046a27",
+      "target": "0x80255e5"
+    },
+    {
+      "callsite": "0x8046a28",
+      "return_key": "0x8046a2d",
+      "target": "0x80462f1"
+    },
+    {
+      "callsite": "0x8046a30",
+      "return_key": "0x8046a35",
+      "target": "0x80226ed"
+    },
+    {
+      "callsite": "0x8046a36",
+      "return_key": "0x8046a3b",
+      "target": "0x800832f"
+    },
+    {
+      "callsite": "0x8046a40",
+      "return_key": "0x8046a45",
+      "target": "0x8021a09"
+    },
+    {
+      "callsite": "0x8046a4a",
+      "return_key": "0x8046a4f",
+      "target": "0x8021a09"
+    },
+    {
+      "callsite": "0x8046a56",
+      "return_key": "0x8046a5b",
+      "target": "0x8021a09"
+    },
+    {
+      "callsite": "0x8046a60",
+      "return_key": "0x8046a65",
+      "target": "0x8021a09"
+    },
+    {
+      "callsite": "0x8046a6c",
+      "return_key": "0x8046a71",
+      "target": "0x8021a09"
+    },
+    {
+      "callsite": "0x8046a76",
+      "return_key": "0x8046a7b",
+      "target": "0x8021a09"
+    },
+    {
+      "callsite": "0x8046a80",
+      "return_key": "0x8046a85",
+      "target": "0x8021a09"
+    }
+  ],
+  "diagnostic_pieces": [
+    {
+      "name": "sbl-fault",
+      "address": "0x80532ec",
+      "length": 68
+    },
+    {
+      "name": "sbl-fatal",
+      "address": "0x80533e0",
+      "length": 48
+    },
+    {
+      "name": "sbl-init-entry",
+      "address": "0x80107fc",
+      "length": 24
+    },
+    {
+      "name": "sbl-init-call",
+      "address": "0x80109c0",
+      "length": 40
+    }
+  ],
+  "first_flash_getter_caller_trace_offset": 108,
+  "ram_flash_type_adaptation": {
+    "address": "0x080247a4",
+    "original": "10b50648",
+    "replacement": "05207047",
+    "value": 5,
+    "pbl_shared_structure_modified": false,
+    "signature_checks_modified": false
+  },
+  "keymaster_loader_probe": {
+    "original_callsite": "0x8f600f88",
+    "original_target": "0x8f609be8",
+    "wrapper": "0x8f60f87c",
+    "length": 132,
+    "original_loader_return_trace_offset": 120,
+    "failure_return_preserved": false,
+    "success_returns_original_zero": false
+  },
+  "aboot_trace_address": "0x8f6986bc",
+  "aboot_trace_length": 128,
+  "aboot_log_original_capacity": 4096,
+  "aboot_log_reserved_capacity": 3968,
+  "unlock_setter_called": false,
+  "diagnostic_abort_after_state_read": true,
+  "verification_probe": {
+    "backend_read": "0x8f6293f0",
+    "command": "0x202",
+    "write_command_called": false,
+    "header_trace_offset": 64,
+    "header_length": 32,
+    "backend_return_trace_offset": 32,
+    "completed_phase": "0x42",
+    "stub_copy_length": 156
+  }
+}
