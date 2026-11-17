@@ -1,1 +1,7 @@
-Calls original keymaster loader and original aligned allocator, clears first buffer word, invokes keymaster read command 0x202 directly through 0x8F6293F0. Does not call state reader fallback, setter, or 0x203 write. Records raw return at +32 and only deviceinfo header32 at +64. Phase0x42 marks backend returned. Deliberate known-unmapped read then enters diagnostic path. Allocated4KB is deviceinfo security metadata, never userdata; only header32 returned to host. No success until return0 plus valid ANDROID-BOOT! header and main1 verified after reboot.
+# 第三轮：直接后端验证
+
+独立重启后，调用原厂 keymaster loader 和对齐分配函数，经 `0x8F6293F0` 发送 `0x202` 读取请求。不调用高层默认初始化函数、解锁 setter 或 `0x203` 写入接口。
+
+`phase = 0x42` 表示后端已返回；原始返回值位于记录 `+32`，状态头 32 字节位于 `+64`。随后进入 900E，由电脑读取合成记录，不读取 userdata。
+
+成功须同时满足返回值为 `0`、状态头为 `ANDROID-BOOT!`、主解锁字段为 `1`。本机实测 critical 字段为 `0`。

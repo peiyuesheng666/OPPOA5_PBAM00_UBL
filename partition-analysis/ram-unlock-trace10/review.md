@@ -1,1 +1,5 @@
-Fresh RAM boot after user ordinary reboot. Calls original keymaster loader then original state reader only; no unlock setter. Phase 0x41 means read returned, +40 is main flag and +44 critical flag. +44 is NOT copier_fault for this secondary record. Original reader can initialize default state on invalid storage, so absence of a setter is not proof of zero storage side effects. Deliberate load from known-unmapped 0x82000200 requests the previously observed data-abort-to-900E diagnostic path. Primary trace separate. No userdata access. This is instrumented signed-code execution, not yet an independent stock fastboot confirmation. Runtime and persistence require evidence.
+# 第二轮：高层状态读取
+
+调用原厂 keymaster loader 后执行高层状态读取函数，不直接调用主解锁 setter。`phase = 0x41` 表示函数已返回；记录 `+40` 为主锁字段，`+44` 为 critical 字段。
+
+状态头无效时，该函数可能初始化并持久化默认状态，因此本轮并非完全只读，不能单独证明第一轮写入成功。读取完成后主动进入 900E 诊断路径，不读取 userdata。

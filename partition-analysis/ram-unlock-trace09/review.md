@@ -1,7 +1,7 @@
-# Attempt09 review
+# 第一轮：调用原厂主解锁函数
 
-Attempt08 log proves a data abort at 0x8F60F888 on the first store through r4=0x82000200. The wrapper was entered; no unlock setter executed.
+使用 A.03 RAM 引导调用原厂主解锁 setter，请求更新持久状态。
 
-Attempt09 reserves the final 128 bytes of the existing aboot log data at 0x8F6986BC. Capacity becomes 3968, whose endpoint exactly matches the trace start; the trace ends at the original 4096-byte ring endpoint. Runtime preservation of the capacity still requires verification.
+aboot 合成记录位于 `0x8F6986BC`，预留日志区尾部 128 字节，日志容量调整为 3968 字节。RAM 镜像和 copier 在执行前回读验证，不读取 userdata。
 
-Image SHA256, forced MMC getter, relocated 48-byte fatal probe, and Thumb callback pointer checked. Builder bounds enforce 128-byte SBL hook within 132 and 132-byte wrapper within 156. Dual trace readers parse records independently and validate each magic. No userdata reads. Persistent unlock is unverified. Not launched yet.
+本轮启动或进入第二屏不能独自证明解锁成功，以第三轮新启动后的后端查询为准。
