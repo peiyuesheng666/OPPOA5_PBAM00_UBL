@@ -326,8 +326,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 4724,
-    "sha256": "1f63fac3bacf0fceb59033178199f74ca56626e7b07de852641eea0868f67cdc"
+    "bytes": 5444,
+    "sha256": "60765645e0a933530a29445f6e55fed6165f5767278803a4580abfc996d0e21e"
   },
   {
     "path": "requirements.txt",
@@ -393,5 +393,10 @@
     "path": "一键解锁.cmd",
     "bytes": 220,
     "sha256": "1ddbf383db76b6dd957aecc0ce6dd711080a2286f1bd5a3fe91807e66c7f4478"
+  },
+  {
+    "path": "README_EN.md",
+    "bytes": 6628,
+    "sha256": "d2a3a246707ae83cfc70e4fe6c2de854a3fa3ac6d29aae271bb10253bba76ae6"
   }
 ]
