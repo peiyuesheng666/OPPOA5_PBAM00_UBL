@@ -1,7 +1,7 @@
 {
   "attempt": 9,
   "source_sha256": "90c62c7dd1a01ec4da9255b4935a8bb7d63646e7b9074d3353271914e2820b27",
-  "staged_sha256": "f3f88a823c616af4ef083aa4afab7ed6daf4b0e7bc0718d0a97b5400c2e1cde9",
+  "staged_sha256": "a3aa7e87cb43bfdd74391f54fad4512ca95e691153d88a111710d95dfdf06015",
   "stage_address": "0x82000000",
   "entry": "0x8008070",
   "bootinfo_argument": "0x8003100",
@@ -58,7 +58,7 @@
   ],
   "trace_address": "0x82000200",
   "trace_length": 128,
-  "trace_magic": "0xa5032009",
+  "trace_magic": "0xe9f38d99",
   "hook_address": "0x805338c",
   "hook_length": 128,
   "trampoline_length": 132,
@@ -277,5 +277,11 @@
   "aboot_trace_address": "0x8f6986bc",
   "aboot_trace_length": 128,
   "aboot_log_original_capacity": 4096,
-  "aboot_log_reserved_capacity": 3968
+  "aboot_log_reserved_capacity": 3968,
+  "action": "relock",
+  "requested_main_unlocked": 0,
+  "hardware_verified": false,
+  "unlock_setter_called": true,
+  "independent_fresh_boot_backend_read_required": false,
+  "automatic_post_action_state_readback": false
 }

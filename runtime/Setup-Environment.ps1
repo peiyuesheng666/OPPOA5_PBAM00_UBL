@@ -1,11 +1,11 @@
 ﻿param([switch]$DependenciesOnly)
-Write-Host '解锁方案/脚本/文件 By 酷安@Dev裴月笙 公益解锁文件，禁止倒卖盈利'
+if ($env:A5_BANNER_SHOWN -ne '1') { Write-Host '解锁方案/脚本/文件 By 酷安@Dev裴月笙 公益解锁文件，禁止倒卖盈利'; $env:A5_BANNER_SHOWN = '1' }
 $ErrorActionPreference = 'Stop'
 $env:PYTHONUTF8 = '1'
 Set-Location -LiteralPath $PSScriptRoot
 
 function Find-Python {
-    $paths = @((Join-Path $PSScriptRoot '.venv\Scripts\python.exe'), (Join-Path $PSScriptRoot '..\tools\ofp-venv\Scripts\python.exe'))
+    $paths = @((Join-Path $PSScriptRoot '.venv\Scripts\python.exe'))
     if ($env:LOCALAPPDATA) {
         $paths += @(Get-ChildItem -Path "$env:LOCALAPPDATA\Programs\Python\Python*\python.exe" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName)
     }
@@ -43,7 +43,9 @@ if (-not (Test-Path -LiteralPath $venvPython)) {
 Write-Host '正在从随包文件安装 Python 依赖……'
 & $venvPython -m pip install --no-index --find-links (Join-Path $PSScriptRoot 'dependencies') -r (Join-Path $PSScriptRoot 'requirements.txt')
 if ($LASTEXITCODE -ne 0) { throw '依赖安装失败，已停止。' }
-& $venvPython -B (Join-Path $PSScriptRoot 'one_click_unlock.py') --self-check
+& $venvPython -B (Join-Path $PSScriptRoot 'run_action.py') unlock --self-check
+if ($LASTEXITCODE -ne 0) { throw '解锁资料自检失败。' }
+& $venvPython -B (Join-Path $PSScriptRoot 'run_action.py') relock --self-check
 if ($LASTEXITCODE -ne 0) { throw '资料包自检失败，已停止。' }
 if (-not $DependenciesOnly) {
     $driverPath = Join-Path $PSScriptRoot 'drivers\Qualcomm_QDLoader_Setup.exe'
@@ -54,4 +56,4 @@ if (-not $DependenciesOnly) {
     if ($process.ExitCode -notin @(0, 1641, 3010)) { throw "驱动安装程序退出码：$($process.ExitCode)。请检查安装向导结果。" }
     Write-Host '驱动安装程序已结束；若向导要求重启电脑，请先重启。'
 }
-Write-Host '依赖已准备好。手机进入 9008 后，双击“一键解锁.cmd”。' -ForegroundColor Green
+Write-Host '依赖已准备好。手机进入 9008 后，双击“一键解锁.cmd”或“一键回锁.cmd”。' -ForegroundColor Green

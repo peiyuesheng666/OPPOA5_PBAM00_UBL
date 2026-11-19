@@ -2,3 +2,5 @@
 __pycache__/
 *.pyc
 runs/
+*.log
+port_trace.txt
