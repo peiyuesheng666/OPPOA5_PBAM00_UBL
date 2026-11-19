@@ -31,8 +31,8 @@
   },
   {
     "path": "one_click_unlock.py",
-    "bytes": 10601,
-    "sha256": "2fd53f3d15c5bdeedf34da6a6b77b8ab1a12aca40739d261669a0e0b451b86cd"
+    "bytes": 9348,
+    "sha256": "cc37e5a04db29b8687a98081cdc581d8d3b004bec1f2d04bf9e170aaa6ccdb65"
   },
   {
     "path": "OPPOA5/PBAM00_A03_extracted/emmc_appsboot.mbn",
@@ -120,214 +120,9 @@
     "sha256": "5284202787cd7241dc1957cc79633ed9c9f3da0ea6075fd48f6678640fce9bd5"
   },
   {
-    "path": "partition-analysis/ram-unlock-trace10/aboot-log-ring.bin",
-    "bytes": 3968,
-    "sha256": "617a38d062f72e366b5d2b8f28d023ddee55481d50660e9b91807396e45bb2c2"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/aboot-log.txt",
-    "bytes": 1757,
-    "sha256": "6a3dd635776450d7a66651e5c416f616c1afc0d6b42abbe364961ed44fedeedb"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/aboot-trampoline-source.asm",
-    "bytes": 424,
-    "sha256": "c76bb4c11c52d765f1ace96327e75beb9fc4f290703369de8e7aaf6946022bce"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/aboot-trampoline.asm",
-    "bytes": 687,
-    "sha256": "4d8fd8f71c6e5d743ac992f944d732482c61a2d0d47b7fe30c06674f7d3105cf"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/copier-source.asm",
-    "bytes": 1158,
-    "sha256": "f098741098af6cd84067e681b15792c613a0921f6e6c72d31f467ace09139a2d"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/fresh-state-corroboration.json",
-    "bytes": 286,
-    "sha256": "4b0620bbc30edc4acf1333e53c774fddd395da4de5227ab669c4ca0db88cc3e4"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/launch-ram-sbl.xml",
-    "bytes": 26762,
-    "sha256": "a736f68f28f4408961752b6d23507ac8f6508ae0a3093f32c518ae0ddde7cb1f"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/observed-sahara-trace.json",
-    "bytes": 3238,
-    "sha256": "73dff9599b8e92c6924147b4cf8433e196c7f03ed09bd4162ceb991c70239ceb"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/ram-boot-copier.bin",
-    "bytes": 1568,
-    "sha256": "23627d8295d4077cf77a8ead01c5268aca107ad4d8adf056fd8d16f9d6f20974"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/ram-boot-copier.json",
-    "bytes": 227,
-    "sha256": "0cb7063159f967fbb34ffa21e5626aaa89cdb16a042fb7e4c7ab83fce65012bc"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/ram-boot-launch.json",
-    "bytes": 480,
-    "sha256": "0645ebab1468735367a440f8877d53b6ba4c6f284e2a078ef3fb74f4c77a4b45"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/ram-unlock-plan.json",
-    "bytes": 6367,
-    "sha256": "9a1aa3d532d64414a976cf34232cf026ee96dd1b578b2af09252ad14660c7b37"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/review.md",
-    "bytes": 456,
-    "sha256": "354deaa9442e54a85d06abc2ceee7696faafbdba9afbc668ae7f0bfdb9bc59db"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/sahara-aboot-trace.bin",
-    "bytes": 128,
-    "sha256": "8673ffa5ccac33e8074674c19e4ccd184d0595fbbd4746ddc0f16c366a7f1de5"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/sahara-trace-transcript.json",
-    "bytes": 981,
-    "sha256": "e1bac9cd9f65e9c0d7508ca6d786e8974d873546840f4544be285cd7760d1513"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/sahara-trace.bin",
-    "bytes": 128,
-    "sha256": "9ece73bcca75098afbd4ea8b346035bc146a7faf1ea58e37b7e59719920274b8"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/sbl-hook-source.asm",
-    "bytes": 745,
-    "sha256": "22f14f72dee127be8a1a76ea5f4eb9e34bf9d1475a8d9342bb03eccc879de077"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/sbl1-ram-hook.mbn",
-    "bytes": 436444,
-    "sha256": "b24483bfa92ceefcee6251f99c5041cb5d66f84f5a52d9f59b0d4475f6c38dbb"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/stage-sbl-ram.xml",
-    "bytes": 4146294,
-    "sha256": "942a1e1e9d90d3c2f2a9c88bc9e0001a13b3fd8885bc4d93a8e2e44f19fe068d"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace10/stage-sbl-verification.json",
-    "bytes": 391,
-    "sha256": "384442b1840d4431894e77b6319eaa0b956c51b88902048020f2435c25a4b605"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/aboot-log-ring.bin",
-    "bytes": 3968,
-    "sha256": "1cc737405a2edf2d42d5585fd3f423eb349ece3f0ffa5589348d2888b1bc929d"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/aboot-log.txt",
-    "bytes": 1757,
-    "sha256": "18abd83b3f52f177efea627c2c0db5b814e69128a01b316d417beec3564a33ec"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/aboot-trampoline-source.asm",
-    "bytes": 560,
-    "sha256": "97e0ca1b055125bfb51238ebe6a977ebfdff9a4f50782b7cd3728e0d9663df88"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/aboot-trampoline.asm",
-    "bytes": 833,
-    "sha256": "5c1e648c4edc51f8602ee2cd9a46b70e358cba634a36f0f42882c8439c860a88"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/backend-code-verification.json",
-    "bytes": 244,
-    "sha256": "7ab8c85aec5b8342ec34f6e3836777e9f85fed674cba428385f114d4bf3f9f84"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/copier-source.asm",
-    "bytes": 1158,
-    "sha256": "253cf0ae7ffdbfe2c39342a9a4a7d0d75e4510fe9678c7243f55cac69b6f4b3a"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/launch-ram-sbl.xml",
-    "bytes": 26762,
-    "sha256": "30ec1dc2afb1d61d3d724d903c005b7f24b2d0ffdb93193e6284afe58e899fd6"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/observed-sahara-trace.json",
-    "bytes": 2474,
-    "sha256": "da7e944d09a5a4100e40fdd4719b17ed0cdbd3eac3731ca55992c2fcb189c3b6"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/ram-boot-copier.bin",
-    "bytes": 1568,
-    "sha256": "65a8ffd741c3c62c6f8a2fb8b2a2b3f59a82566e3f0bd560b1816667a1bce5cf"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/ram-boot-copier.json",
-    "bytes": 227,
-    "sha256": "4079ab54409159e2d3c61d384ce574274e9ad9a1a7d80f8db076c7927b9f5929"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/ram-boot-launch.json",
-    "bytes": 480,
-    "sha256": "80d812c466faef99342f80366be3d1c0e709013657804046478311d38b260583"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/ram-unlock-plan.json",
-    "bytes": 6710,
-    "sha256": "62c38d0d0e7fdfbd951b1222e1196a7a6408029a9afa89a37b02142d5369199c"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/review.md",
-    "bytes": 559,
-    "sha256": "8057072eb6cd65f4847f36dff92b1324a3e5643ae0f905b084f506cc508967b6"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/sahara-aboot-trace.bin",
-    "bytes": 128,
-    "sha256": "40ea5d2c97fa35ad14cc2c1ee57932044bc605edaa2cc459249877a2bdfa3612"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/sahara-trace-transcript.json",
-    "bytes": 981,
-    "sha256": "8530c2275be5e69cc5cc0edb8cf6b1cc4bc733dd3606872062644bc504b85cd8"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/sahara-trace.bin",
-    "bytes": 128,
-    "sha256": "906b51f1ed8b0e270c1a435105e84000386878d89e9b1acb9eb2931a0224ee6a"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/sbl-hook-source.asm",
-    "bytes": 745,
-    "sha256": "5a3a98585601a5257ef4d9dd1c5f63251b66f772d73ba22fbcbae14275328bd5"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/sbl1-ram-hook.mbn",
-    "bytes": 436444,
-    "sha256": "5f98a037a2de329661af6d6d0215a459966de50d9c837c095eaa484df006ef15"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/stage-sbl-ram.xml",
-    "bytes": 4146294,
-    "sha256": "512b29ab6da823b3e75e7ce81ec2a168cf93c9ee02424a767ad604b8615882bd"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/stage-sbl-verification.json",
-    "bytes": 391,
-    "sha256": "9c5b4baa067746a8712a9ae0108ac3cc8639ae1c97383b7c7684f663200aeb67"
-  },
-  {
-    "path": "partition-analysis/ram-unlock-trace11/unlock-verification.json",
-    "bytes": 685,
-    "sha256": "9c94ebaeabbbdbb87999ebfb57c7f56e6a623c8bcf0d1d60cba128fd449516b3"
-  },
-  {
     "path": "README.md",
-    "bytes": 5444,
-    "sha256": "60765645e0a933530a29445f6e55fed6165f5767278803a4580abfc996d0e21e"
+    "bytes": 4695,
+    "sha256": "96a9a4d2d196855d2e5fb10629279d6ca6fda8957d8b097d45090c6d0c5110a0"
   },
   {
     "path": "requirements.txt",
@@ -346,8 +141,8 @@
   },
   {
     "path": "test_one_click_offline.py",
-    "bytes": 2504,
-    "sha256": "794416d231954e63d62d3a18f39b32449082d6817e6a5ef0e074b9e11866d9c5"
+    "bytes": 2345,
+    "sha256": "a1eb513aa4697a8b2d68172e5050e19813ba6f225c2b6f7c871390db7b50b86c"
   },
   {
     "path": "tools/firehose_450.mbn",
@@ -358,16 +153,6 @@
     "path": "tools/launch_a5_ram_sbl.py",
     "bytes": 3719,
     "sha256": "cd6261c2d65382b377e6982b92d91679f1af67104d2b155420cbf62264d803aa"
-  },
-  {
-    "path": "tools/read_a5_ram_boot_trace.py",
-    "bytes": 4026,
-    "sha256": "c34f5993caffd43bf6bd7f69c3f53e7e33eda63c5833666e3da61430c54a55ed"
-  },
-  {
-    "path": "tools/read_a5_sahara_boot_trace.py",
-    "bytes": 4072,
-    "sha256": "f04f4f9222c0d1882b9a4753f6ad48ae8eeb9752473c64b9323c50fe9b5b5145"
   },
   {
     "path": "tools/stage_a5_ram_sbl.py",
@@ -381,8 +166,8 @@
   },
   {
     "path": "一键使用说明.md",
-    "bytes": 982,
-    "sha256": "8127c843be53e64eb71bdcd3cb8c853f6332380b3ebf3f0a9ed66c6e54e29b95"
+    "bytes": 739,
+    "sha256": "1b0301f409f15465bd7f5ef0768b6a6c27a9c3c226e78092050158509ac2d5ed"
   },
   {
     "path": "一键安装依赖和驱动.cmd",
@@ -396,7 +181,7 @@
   },
   {
     "path": "README_EN.md",
-    "bytes": 6628,
-    "sha256": "d2a3a246707ae83cfc70e4fe6c2de854a3fa3ac6d29aae271bb10253bba76ae6"
+    "bytes": 5869,
+    "sha256": "c44a599f8d2beb5dba02360065ab8fa625bfc446b2f3973090e0e1f0fe50ba5b"
   }
 ]

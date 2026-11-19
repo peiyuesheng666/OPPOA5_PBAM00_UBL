@@ -11,33 +11,27 @@ For OPPO A5 PBAM00 with eMMC only. Do not run directly on A.35 or another unsupp
 1. Download and fully extract the package, preserving its directory structure.
 2. Run `一键安装依赖和驱动.cmd` to prepare Python and pyserial and open the Qualcomm driver installer. Accept the administrator prompt and complete the installer. If Python is missing, setup attempts to install it through winget and requires internet access.
 3. Connect only the target phone, enter a fresh 9008 session, and run `一键解锁.cmd`.
-4. Follow the prompts for rounds one, two, and three. After each of the first two rounds, force-restart the phone, enter 9008 again, then press Enter to continue.
-5. During round three, keep the phone connected and do not restart while the script waits for 900E and reads the diagnostic records. Force-restart manually after verification finishes.
+4. The script checks firmware, stages the RAM image, sends the round-one launch request and exits.
+5. Force-restart manually if the phone remains on an abnormal screen. This simplified workflow does not perform subsequent state processing or persistent-unlock verification. Completion does not establish unlocking.
 
 The script does not downgrade firmware, flash a complete firmware package, or read or back up userdata. The process requests persistent state changes and cannot guarantee that existing data remains usable. Prepare recovery materials for your own device; do not restore another device's NV or calibration backups.
 
-## The three rounds
+## Single-round workflow
 
-| Round | Operation | Materials |
-| --- | --- | --- |
-| One | Invoke the original main-unlock setter from a RAM boot | `partition-analysis/ram-unlock-trace09/` |
-| Two | Invoke the original high-level state reader and record state | `partition-analysis/ram-unlock-trace10/` |
-| Three | Read the keymaster backend after an independent boot to verify persistence | `partition-analysis/ram-unlock-trace11/` |
+Only the original first round remains: invoke the original main-unlock setter from a RAM boot. Materials are in `partition-analysis/ram-unlock-trace09/`.
 
-Directory names remain unchanged for script compatibility. The high-level reader in round two may initialize and persist default state if the stored header is invalid. This round is therefore not strictly read-only. Success with round two omitted has not been established.
+Rounds two and three have been removed. This simplified sequence has not been independently tested on a device; round one alone is not established as sufficient to unlock, and persistent unlock is not automatically verified.
 
 ## How it works
 
-In 9008 mode, `firehose_450.mbn` provides memory access used to stage and execute a modified A.03 SBL. After SBL loads aboot, the patch redirects its RAM execution flow and invokes original state functions after keymaster is loaded. Round three calls the `0x202` backend reader directly, without invoking the setter, default-initialization reader, or `0x203` write interface.
-
-Round three deliberately enters the 900E diagnostic path. The host reads only two synthetic 128-byte records. A black screen at this point is expected; restarting early can overwrite the records.
+In 9008 mode, `firehose_450.mbn` provides memory access used to stage and execute a modified A.03 SBL. After SBL loads aboot, the patch redirects its RAM execution flow and invokes original state functions after keymaster is loaded.
 
 ## Package contents
 
 | Path | Purpose |
 | --- | --- |
 | `一键安装依赖和驱动.cmd` | Dependency and driver setup |
-| `一键解锁.cmd` | Three-round workflow launcher |
+| `一键解锁.cmd` | Single-round launcher |
 | `tools/` | RAM staging, launch and diagnostic scripts; Firehose |
 | `bin/` | Sahara and Firehose utilities |
 | `drivers/` | Qualcomm driver installer |
@@ -57,8 +51,7 @@ After restoring A.35, the device owner reported a working Android system with th
 | Timeout waiting for 9008 | Check the driver, cable and device mode; connect only the target phone |
 | Sahara reads a zero-byte packet header | The handshake did not complete. Close other tools, force-restart and enter 9008 again. If it persists, preserve logs and check whether Firehose is already running |
 | Firmware mismatch | Stop; do not bypass checks or use A.03 addresses on A.35 |
-| Logo, Recovery or black screen | Screen appearance alone does not establish unlocking; consult round-three results |
-| Round three enters 900E | Keep connected for the automatic read; restart manually afterward |
+| Logo, Recovery or black screen | Screen appearance alone does not establish unlocking; check the actual device unlock state separately |
 | Script error | Preserve the current `runs/` logs; do not automatically retry unlocking |
 
 Offline self-check, without accessing the phone:

@@ -33,12 +33,12 @@ def required_package_paths():
         'Start-Unlock.ps1', 'Setup-Environment.ps1',
         'bin/fh_loader.exe', 'bin/QSaharaServer.exe',
         'tools/firehose_450.mbn', 'tools/stage_a5_ram_sbl.py',
-        'tools/launch_a5_ram_sbl.py', 'tools/read_a5_sahara_boot_trace.py',
+        'tools/launch_a5_ram_sbl.py',
         'tools/test_firehose_ram_write.py',
         'drivers/Qualcomm_QDLoader_Setup.exe', 'drivers/installer-info.json',
         'dependencies/pyserial-3.5-py2.py3-none-any.whl',
     }
-    for n in (9, 10, 11):
+    for n in (9,):
         for name in ('ram-unlock-plan.json', 'sbl1-ram-hook.mbn',
                      'ram-boot-copier.json', 'ram-boot-copier.bin'):
             required.add(f'partition-analysis/ram-unlock-trace{n:02d}/{name}')
@@ -55,7 +55,7 @@ def check_package():
         require(path.is_file(), '缺少必要文件：' + name)
         require(hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256'],
                 '必要文件校验失败：' + name)
-    for n in (9, 10, 11):
+    for n in (9,):
         path = ROOT / 'partition-analysis' / f'ram-unlock-trace{n:02d}'
         plan = load(path / 'ram-unlock-plan.json')
         require(plan['attempt'] == n, '阶段编号不匹配')
@@ -164,15 +164,6 @@ def execute_stage(directory):
                 '阶段未成功，已停止：' + str(directory / result))
 
 
-def unlocked(observed):
-    trace = observed.get('aboot_trace', {})
-    backend = trace.get('backend', {})
-    return (not observed.get('error') and observed.get('trace_magic_valid') is True
-            and trace.get('trace_magic_valid') is True and backend.get('returned') is True
-            and backend.get('return_raw') == '0x0'
-            and backend.get('header_magic_valid') is True
-            and backend.get('main_unlocked') == 1)
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -188,33 +179,22 @@ def main():
     summary = {'main_unlock_verified': False, 'userdata_read': False, 'completed_stages': []}
     try:
         print('仅支持 PBAM00 / eMMC / 匹配的 A.03。当前 A.35 不要运行。', flush=True)
-        print('第 1、2 步会调用原厂持久状态写入逻辑，不保证数据可用性。', flush=True)
-        for step, number in enumerate((9, 10, 11), start=1):
-            if number == 9:
-                print('请将目标 A5 进入新的 9008 连接；开始等待……', flush=True)
-            else:
-                input(f'上一步已发出启动请求。请强制重启，再重新进入 9008；完成后按回车开始第 {step}/3 步：')
-            port = wait_port(0x9008)
-            directory = copy_stage(number, run_dir)
-            print(f'第 {step}/3 步：{port}，传输 programmer……', flush=True)
-            run_command([str(ROOT / 'bin/QSaharaServer.exe'), '-p', '\\\\.\\' + port,
-                         '-s', '13:' + str(ROOT / 'tools/firehose_450.mbn'), '-t', '5'],
-                        directory / 'sahara.log', ROOT, 'Sahara protocol completed', 60)
-            print('检查本机 A.03 引导组件……', flush=True)
-            verify_firmware(port, directory)
-            print('暂存及回读 RAM 镜像；可能需要数分钟，请保持连接。', flush=True)
-            execute_stage(directory)
-            summary['completed_stages'].append(number)
-            if number == 11:
-                print('等待读取 900E 诊断记录；请勿手动重启……', flush=True)
-                wait_port(0x900e, 120)
-                run_command([sys.executable, str(ROOT / 'tools/read_a5_sahara_boot_trace.py'),
-                             '--artifact-dir', str(directory)], directory / 'read-trace.log', ROOT, timeout=60)
-                observed = load(directory / 'observed-sahara-trace.json')
-                require(unlocked(observed), '未读到完整的主解锁证据，不能判定成功，请保留本次日志。')
-                summary['main_unlock_verified'] = True
-                print('已验证主解锁状态为 1！本轮只读后端，未再次调用解锁 setter。', flush=True)
-                print('手机停在 900E 是诊断设计结果，请手动强制重启。未验证 critical 解锁或未签名镜像启动。')
+        print('仅执行第一轮：请求写入主解锁状态，不保证数据可用性。', flush=True)
+        print('请将目标 A5 进入新的 9008 连接；开始等待……', flush=True)
+        port = wait_port(0x9008)
+        directory = copy_stage(9, run_dir)
+        print(f'第一轮：{port}，传输 programmer……', flush=True)
+        run_command([str(ROOT / 'bin/QSaharaServer.exe'), '-p', '\\\\.' + '\\' + port,
+                     '-s', '13:' + str(ROOT / 'tools/firehose_450.mbn'), '-t', '5'],
+                    directory / 'sahara.log', ROOT, 'Sahara protocol completed', 60)
+        print('检查本机 A.03 引导组件……', flush=True)
+        verify_firmware(port, directory)
+        print('暂存及回读 RAM 镜像；可能需要数分钟，请保持连接。', flush=True)
+        execute_stage(directory)
+        summary['completed_stages'].append(9)
+        summary['launch_request_sent'] = True
+        print('第一轮启动请求已发送。本流程结束，尚未验证是否解锁成功。', flush=True)
+        print('若手机停在异常画面，请手动强制重启。', flush=True)
     except Exception as exc:
         summary['error'] = str(exc)
         raise

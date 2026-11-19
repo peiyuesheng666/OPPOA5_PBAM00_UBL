@@ -25,15 +25,11 @@ class WorkflowChecks(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             app.parse_gpt(bytes(34 * 512))
 
-    def test_fresh_backend_result_required(self):
-        fixture = app.load(app.ROOT / 'partition-analysis/ram-unlock-trace11/observed-sahara-trace.json')
-        self.assertTrue(app.unlocked(fixture))
-        for key, value in [('return_raw', '0xffffffff'), ('main_unlocked', 0),
-                           ('header_magic_valid', False), ('returned', False)]:
-            bad = copy.deepcopy(fixture)
-            bad['aboot_trace']['backend'][key] = value
-            self.assertFalse(app.unlocked(bad))
-        self.assertFalse(app.unlocked({}))
+    def test_only_first_round_runs(self):
+        source = (app.ROOT / 'one_click_unlock.py').read_text(encoding='utf-8')
+        self.assertIn('copy_stage(9, run_dir)', source)
+        self.assertNotIn('wait_port(0x900e', source)
+        self.assertFalse(any('trace10/' in p or 'trace11/' in p for p in app.required_package_paths()))
 
     def test_failed_stage_never_launches(self):
         with tempfile.TemporaryDirectory() as folder:
