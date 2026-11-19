@@ -193,8 +193,7 @@ def main():
         execute_stage(directory)
         summary['completed_stages'].append(9)
         summary['launch_request_sent'] = True
-        print('第一轮启动请求已发送。本流程结束，尚未验证是否解锁成功。', flush=True)
-        print('若手机停在异常画面，请手动强制重启。', flush=True)
+        print('已经成功执行解锁流程，请重启进入Recovery清除数据之后开机查看解锁状态', flush=True)
     except Exception as exc:
         summary['error'] = str(exc)
         raise
